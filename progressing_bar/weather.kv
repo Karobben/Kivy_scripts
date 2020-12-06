@@ -1,0 +1,57 @@
+<Bar_1>:
+    size: 50, 200
+    canvas:
+        Rectagle
+            pos: 100, root.top - 10
+            size: slef.size
+
+<Paddle>:
+    size: 25, 200
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<Single_bar>:
+    size: 25, 200
+    canvas:
+        Color:
+            rgba: [1, 0, 0, 1]
+        Rectangle:
+            #source: 'img/Box_border.png'
+            pos: self.pos
+            size: self.size
+
+<Single_bar_B>:
+    size: 25, 200
+    canvas:
+        Rectangle:
+            source: 'img/Box_border.png'
+            pos: self.pos
+            size: self.size
+
+<Main_app>:
+    bar_1: single_bar
+    bar_border: bar_b
+
+    Single_bar:
+        # the bar at top left
+        id: single_bar
+        x: root.right * 0.01
+        y: root.top * 0.7
+        size: 200, 20
+
+    Single_bar_B:
+        # Border of the single_bar
+        id: bar_b
+        x: root.right * 0.01
+        y: root.top * 0.7
+        size: 200, 20
+        #center_y: root.center_y
+
+    Label:
+        # score of bar 1
+        font_size: 70
+        center_x: root.width / 10
+        top: root.top - 10
+        text: str(root.bar_1.score)
